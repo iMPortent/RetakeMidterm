@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
             myTask.execute(90000);
 
 
-            //toLoginPage = new Intent(this, LoginPage.class);
-            //startActivity(toLoginPage);
+            toLoginPage = new Intent(this, LoginPage.class);
+            startActivity(toLoginPage);
         }
 
 }
