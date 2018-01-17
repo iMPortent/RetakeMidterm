@@ -14,5 +14,37 @@ import android.widget.TextView;
 
 public class ListActivity  extends AppCompatActivity {
 
+    TextView emailHolder;
+    public static String bundleKey = "selected";
+
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.list_activity);
+        emailHolder = findViewById(R.id.email_holder);
+
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+
+        transaction.replace(R.id.frag_holder, new RecyclerFragment());
+        transaction.commit();
+    }
+
+    public void takeToMultiply(View view){
+        MultiplierFragment multiplier = new MultiplierFragment();
+        Bundle bundle = new Bundle();
+
+
+        bundle.putString(bundleKey,((TextView) view).getText().toString());
+        multiplier.setArguments(bundle);
+
+
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+
+        transaction.replace(R.id.frag_holder, multiplier);
+        transaction.commit();
+    }
 
 }

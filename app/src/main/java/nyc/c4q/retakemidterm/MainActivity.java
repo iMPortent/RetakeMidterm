@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+        public static String bundleKey = "bundleKey";
         TextView partOneScreen;
         Intent toLoginPage;
 
